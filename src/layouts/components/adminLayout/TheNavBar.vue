@@ -24,16 +24,36 @@
                                 <a href=""
                                    @click.prevent="$router.push({name:'all_categories'})">{{$t('all_categories')}}</a>
                             </li>
+                            <li class="d-md-none" v-if="$helper.hasAccessPermission('all-universities')"
+                                :class="$route.name == 'all_universities' ? 'active' : ''">
+                                <a href=""
+                                   @click.prevent="$router.push({name:'all_universities'})">{{$t('all_universities')}}</a>
+                            </li>
+                            <li class="d-md-none" v-if="$helper.hasAccessPermission('all-teachers')"
+                                :class="$route.name == 'all_teachers' ? 'active' : ''">
+                                <a href=""
+                                   @click.prevent="$router.push({name:'all_teachers'})">{{$t('all_teachers')}}</a>
+                            </li>
                             <li class="d-md-none" v-if="$helper.hasAccessPermission('all-list')"
                                 :class="$route.name == 'all_lists' ? 'active' : ''">
                                 <a href=""
                                    @click.prevent="$router.push({name:'all_lists'})">{{$t('all_lists')}}</a>
                             </li>
-                            <li class="d-md-none" v-if="$helper.hasAccessPermission('all-user')"
-                                :class="$route.name == 'all_users' ? 'active' : ''">
+                            <li class="d-md-none" v-if="$helper.hasAccessPermission('all-assignments')"
+                                :class="$route.name == 'all_assignments' ? 'active' : ''">
                                 <a href=""
-                                   @click.prevent="$router.push({name:'all_users'})">{{$t('all_users')}}</a>
+                                   @click.prevent="$router.push({name:'all_assignments'})">{{$t('all_assignments')}}</a>
                             </li>
+                            <li class="d-md-none" v-if="$helper.hasAccessPermission('all-discussions')"
+                                :class="$route.name == 'all_discussions' ? 'active' : ''">
+                                <a href=""
+                                   @click.prevent="$router.push({name:'all_discussions'})">{{$t('all_discussions')}}</a>
+                            </li>
+                            <!--<li class="d-md-none" v-if="$helper.hasAccessPermission('all-user')"-->
+                                <!--:class="$route.name == 'all_users' ? 'active' : ''">-->
+                                <!--<a href=""-->
+                                   <!--@click.prevent="$router.push({name:'all_users'})">{{$t('all_users')}}</a>-->
+                            <!--</li>-->
                             <li class="d-md-none" v-if="$helper.hasAccessPermission('menu-report')">
                                 <a href="#" @click.prevent>{{$t('reports')}}<span class="submenu-indicator"></span></a>
                                 <ul class="nav-dropdown nav-submenu">
