@@ -26,6 +26,19 @@
                     <div class="dashboard_container_body p-2">
 
                         <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">{{$t('course_type')}}</label>
+                                    <select v-validate="'required'" data-vv-name="course_type"
+                                            v-model="dataModel.course_type"
+                                            class="form-control">
+                                        <option v-for="(course_type , index) in course_types" :value="course_type">
+                                            {{$t(course_type)}}
+                                        </option>
+                                    </select>
+                                    <span class="text-danger text-sm">{{ errors.first('course_type') }}</span>
+                                </div>
+                            </div>
 
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -48,18 +61,15 @@
                                     <span class="text-danger text-sm">{{ errors.first('title_en') }}</span>
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="row">
-
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="font-weight-bold">{{$t('description_ar')}}</label>
-                                    <textarea type="text"
-                                              data-vv-name="description_ar" v-model="dataModel.description_ar"
-                                              class="form-control"
-                                              :placeholder="$t('description_ar')"></textarea>
+                                    <vue-editor dir="ltr" type="text"
+                                                data-vv-name="description_ar"
+                                                v-model="dataModel.description_ar"></vue-editor>
                                     <span class="text-danger text-sm">{{ errors.first('description_ar') }}</span>
                                 </div>
                             </div>
@@ -67,62 +77,72 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="font-weight-bold">{{$t('description_en')}}</label>
-                                    <textarea type="text"
-                                              data-vv-name="description_en" v-model="dataModel.description_en"
-                                              class="form-control"
-                                              :placeholder="$t('description_en')"></textarea>
+                                    <vue-editor dir="ltr"
+                                                data-vv-name="description_en"
+                                                v-model="dataModel.description_en"></vue-editor>
                                     <span class="text-danger text-sm">{{ errors.first('description_en') }}</span>
                                 </div>
                             </div>
-
                         </div>
 
-                        <div class="row">
-                            <!--<div class="col-md-6">-->
-                            <!--<div class="form-group">-->
-                            <!--<label class="font-weight-bold">{{$t('image')}}</label>-->
-                            <!--<input type="file" accept="image/*" @change="previewImage()" ref="myImage"-->
-                            <!--data-vv-name="image"-->
-                            <!--class="form-control"-->
-                            <!--:placeholder="$t('image')">-->
-                            <!--<span class="text-danger text-sm">{{ errors.first('image') }}</span>-->
-                            <!--</div>-->
-                            <!--</div>-->
 
-                            <div class="col-md-2">
-                                <label class="font-weight-bold">&nbsp;</label>
-                                <div>
-                                    <input type="radio" id="link" name="drone" value="link"
-                                           v-model="selector_type">
-                                    <label for="link">{{$t('link')}}</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="video_audio" name="drone" value="video_audio"
-                                           v-model="selector_type">
-                                    <label for="video_audio">{{$t('video_audio')}}</label>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
+                        <div class="row">
+
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="font-weight-bold">{{$t('link')}}</label>
-                                    <input type="text" data-vv-name="link" v-model="dataModel.link"
-                                           :disabled="selector_type == 'video_audio'"
+                                    <label class="font-weight-bold">{{$t('file')}}</label>
+                                    <input type="file" @change="previewFile()" ref="myfile"
+                                           data-vv-name="file"
                                            class="form-control"
-                                           :placeholder="$t('link')">
-                                    <span class="text-danger text-sm">{{ errors.first('link') }}</span>
+                                           :placeholder="$t('file')">
+                                    <span class="text-danger text-sm">{{ errors.first('file') }}</span>
                                 </div>
                             </div>
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="font-weight-bold">{{$t('video_audio')}}</label>
                                     <small class="font-weight-bold text-danger"> ({{$t('max_video')}})</small>
                                     <input type="file" @change="previewVideo()" ref="myVideo"
-                                           :disabled="selector_type == 'link'"
                                            data-vv-name="file"
                                            accept="video/* , audio/*"
                                            class="form-control"
                                            :placeholder="$t('video_audio')">
                                     <span class="text-danger text-sm">{{ errors.first('file') }}</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 direction">
+                                <hr>
+                                <input type="checkbox" id="isLive" v-model="isLive" value="1">
+                                <label for="isLive" class="p-1 font-weight-bold">{{$t('live')}}</label>
+                            </div>
+
+                            <div class="col-md-12" v-if="isLive">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold">{{$t('meeting_info')}}</label>
+                                            <input type="text"
+                                                   v-validate="'required'" data-vv-name="meeting_info"
+                                                   v-model="dataModel.meeting_info"
+                                                   class="form-control"
+                                                   :placeholder="$t('meeting_info')">
+                                            <span class="text-danger text-sm">{{ errors.first('meeting_info') }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="font-weight-bold">{{$t('password')}}</label>
+                                            <input type="password"
+                                                   v-validate="'required'" data-vv-name="password"
+                                                   v-model="dataModel.password"
+                                                   class="form-control"
+                                                   :placeholder="$t('password')">
+                                            <span class="text-danger text-sm">{{ errors.first('password') }}</span>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 
@@ -157,6 +177,8 @@
                 },
                 list: '',
                 selector_type: 'link',
+                course_types: ['assignment', 'video'],
+                isLive: false
             }
         },
         watch: {
@@ -195,6 +217,9 @@
                 this.dataModel.image = this.$refs.myImage.files[0]
             },
             previewVideo() {
+                this.dataModel._file = this.$refs.myVideo.files[0]
+            },
+            previewFile() {
                 this.dataModel.file = this.$refs.myVideo.files[0]
             },
             submitForm() {

@@ -133,7 +133,7 @@ const router = new Router({
 
         {
             // =============================================================================
-            // MAIN LAYOUT ROUTES
+            // Admin LAYOUT ROUTES
             // =============================================================================
             path: '/',
             component: () => import('./layouts/main/AdminMain.vue'),
@@ -148,6 +148,37 @@ const router = new Router({
                     component: () => import('./views/adminLayout/Dashboard.vue'),
                     meta: {
                         pageTitle: 'Dashboard',
+                        authRequired: true,
+                        isAdmin: true,
+                    }
+                },
+
+                {
+                    path: '/admin/all_universities',
+                    name: 'all_universities',
+                    component: () => import('./views/adminLayout/Universities/All.vue'),
+                    meta: {
+                        pageTitle: 'All Universities',
+                        authRequired: true,
+                        isAdmin: true,
+                    }
+                },
+                {
+                    path: '/admin/all_universities/add',
+                    name: 'add_university',
+                    component: () => import('./views/adminLayout/Universities/Add.vue'),
+                    meta: {
+                        pageTitle: 'Add Universities',
+                        authRequired: true,
+                        isAdmin: true,
+                    }
+                },
+                {
+                    path: '/admin/all_universities/edit/:id',
+                    name: 'edit_university',
+                    component: () => import('./views/adminLayout/Universities/Edit.vue'),
+                    meta: {
+                        pageTitle: 'Edit Universities',
                         authRequired: true,
                         isAdmin: true,
                     }
@@ -241,6 +272,71 @@ const router = new Router({
                     component: () => import('./views/adminLayout/Admins/Edit.vue'),
                     meta: {
                         pageTitle: 'Edit Admins',
+                        authRequired: true,
+                        isAdmin: true,
+                    }
+                },
+
+
+                {
+                    path: '/admin/all_discussions',
+                    name: 'all_discussions',
+                    component: () => import('./views/adminLayout/Discussion/All.vue'),
+                    meta: {
+                        pageTitle: 'All Discussions',
+                        authRequired: true,
+                        isAdmin: true,
+                    }
+                },
+
+                {
+                    path: '/admin/all_assignments',
+                    name: 'all_assignments',
+                    component: () => import('./views/adminLayout/Assignments/All.vue'),
+                    meta: {
+                        pageTitle: 'All Assignments',
+                        authRequired: true,
+                        isAdmin: true,
+                    }
+                },
+                {
+                    path: '/admin/show_student_assignment/:id',
+                    name: 'show_student_assignment',
+                    component: () => import('./views/adminLayout/Assignments/AllStudentAssignments.vue'),
+                    meta: {
+                        pageTitle: 'All Student Assignments',
+                        authRequired: true,
+                        isAdmin: true,
+                    }
+                },
+
+
+                {
+                    path: '/admin/all_teachers',
+                    name: 'all_teachers',
+                    component: () => import('./views/adminLayout/Teachers/All.vue'),
+                    meta: {
+                        pageTitle: 'All Teachers',
+                        authRequired: true,
+                        isAdmin: true,
+                    }
+                },
+                {
+                    path: '/admin/all_teachers/add',
+                    name: 'add_teachers',
+                    component: () => import('./views/adminLayout/Teachers/Add.vue'),
+                    meta: {
+                        pageTitle: 'Add Teacher',
+                        authRequired: true,
+                        isAdmin: true,
+                    }
+                },
+                {
+                    path: '/admin/all_teachers/edit/:id',
+                    name: 'edit_teacher',
+                    component: () => import('./views/adminLayout/Teachers/Edit.vue'),
+                    meta: {
+                        pageTitle: 'Edit Teachers',
                         authRequired: true,
                         isAdmin: true,
                     }
@@ -412,7 +508,10 @@ router.beforeEach((to, from, next) => {
     document.title = to.meta.pageTitle;
     if (to.meta.authRequired) {
         if (to.meta.isAdmin) {
-            if (!tokenAdmin) router.push({name: 'login_admin', query: {to: to.path}})
+            if (!tokenAdmin) {
+                router.push({name: 'login_admin', query: {to: to.path}});
+                return;
+            }
         } else {
             if (!token) router.push({name: 'login', query: {to: to.path}})
         }

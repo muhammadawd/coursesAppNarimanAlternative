@@ -7,6 +7,20 @@ Vue.config.productionTip = true
 global.jQuery = require('jquery');
 window.$ = global.jQuery;
 
+import {VueEditor} from "vue2-editor";
+
+Vue.component('vue-editor', VueEditor)
+
+import VueFlatPickr from 'vue-flatpickr-component';
+import 'flatpickr/dist/flatpickr.css';
+
+Vue.use(VueFlatPickr);
+
+import VueWow from 'vue-wow'
+import '@/assets/css/plugins/animation.css'
+// mount with global
+Vue.use(VueWow)
+
 import Paginate from 'vuejs-paginate'
 
 Vue.component('paginate', Paginate)

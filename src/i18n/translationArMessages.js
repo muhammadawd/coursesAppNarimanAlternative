@@ -3,6 +3,12 @@
         name: {
             required: () => 'الاسم مطلوب'
         },
+        code: {
+            required: () => 'الكود مطلوب'
+        },
+        bio: {
+            required: () => 'السيرة الذاتية مطلوب'
+        },
         title_ar: {
             required: () => 'الاسم بالعربية مطلوب'
         },
@@ -17,6 +23,30 @@
         },
         category_id: {
             required: () => 'التصنيف مطلوب'
+        },
+        list_type_id: {
+            required: () => 'نوع الدورة مطلوب'
+        },
+        list_method_id: {
+            required: () => 'طريقة الشرح مطلوب'
+        },
+        start_date: {
+            required: () => 'تاريخ البداية مطلوب'
+        },
+        lectures_count: {
+            required: () => 'عدد المحاضرات مطلوب'
+        },
+        what_you_learn: {
+            required: () => 'ماذا ستتعلم مطلوب'
+        },
+        group_name: {
+            required: () => 'اسم المجموعة مطلوب'
+        },
+        limit_numbers: {
+            required: () => 'العدد المسموح مطلوب'
+        },
+        meeting_info: {
+            required: () => 'بيانات الميتنج مطلوب'
         },
         role_id: {
             required: () => 'الدور مطلوب'

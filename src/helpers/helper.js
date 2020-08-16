@@ -99,8 +99,182 @@ const helper = {
         }
         return result;
     },
+    getRate(val) {
+        val = parseFloat(val);
+        if (val == 5) {
+            return `<ul class="p-0 mb-1">
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                            </ul>`;
+        } else if (val == 1) {
+            return `<ul class="p-0 mb-1">
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                            </ul>`;
+        } else if (val == 2) {
+            return `<ul class="p-0 mb-1">
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                            </ul>`;
+        } else if (val == 3) {
+            return `<ul class="p-0 mb-1">
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                            </ul>`;
+        } else if (val == 4) {
+            return `<ul class="p-0 mb-1">
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                            </ul>`;
+        } else if (val == 5) {
+            return `<ul class="p-0 mb-1">
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                            </ul>`;
+        } else if (val > 0 && val <= 2.5) {
+            return `<ul class="p-0 mb-1">
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star-half-o text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                            </ul>`;
+        } else if (val > 2.5 && val <= 4.5) {
+
+            return `<ul class="p-0 mb-1">
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="fa fa-star-half-o text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                            </ul>`;
+        } else {
+
+            return `<ul class="p-0 mb-1">
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                                <li class="list-inline-item"><i
+                                        class="far fa-star text-warning"></i>
+                                </li>
+                            </ul>`;
+        }
+    },
+    getDays(lang = 'ar') {
+        let days_ar = [
+            'الاحد', 'الاثنين', 'الثلاثاء', 'الاربعاء', 'الخميس', 'الجمعة', 'السبت'
+        ];
+        return days_ar;
+    },
     hasAccessPermission: (permission) => {
-        // return true;
+        return true;
         let myPermission = JSON.parse(localStorage.getItem('myPermission'));
         if (permission == 'ALLOW_ALL') {
             return true

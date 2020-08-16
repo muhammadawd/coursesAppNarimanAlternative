@@ -88,39 +88,12 @@
 
 
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>{{$t('country')}}</label>
-                                            <!--<select-->
-                                            <!--v-validate="'required'" data-vv-name="country_id"-->
-                                            <!--v-model="country_id"-->
-                                            <!--class="form-control">-->
-                                            <!--<option v-for="(country , index) in countries" :value="country.id"-->
-                                            <!--:key="index">-->
-                                            <!--{{country.translated.title}}-->
-                                            <!--</option> -->
-                                            <!--</select>-->
-                                            <multiselect v-model="selectedCounrty" :options="countries"
-                                                         track-by="id"
-                                                         :placeholder="$t('select_country')"
-                                                         :custom-label="nameWithLang"></multiselect>
-                                            <span class="text-danger text-sm">{{ errors.first('country_id') }}</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-
-                                        <div class="form-group">
-                                            <label>{{$t('gender')}}</label>
-                                            <select
-                                                    v-validate="'required'" data-vv-name="gender" v-model="gender"
-                                                    class="form-control">
-                                                <option value="male">{{$t('male')}}</option>
-                                                <option value="female">{{$t('female')}}</option>
-                                            </select>
-                                            <span class="text-danger text-sm">{{ errors.first('gender') }}</span>
-                                        </div>
+                                    <div class="col-md-12 mb-2">
+                                        <label>{{$t('bio')}}</label>
+                                        <vue-editor dir="ltr" v-model="bio"></vue-editor>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -161,6 +134,7 @@
                 password: null,
                 password_confirmation: null,
                 selectedCounrty: null,
+                bio: null,
                 gender: 'male',
                 countries: [],
                 captcha: null

@@ -8,10 +8,20 @@
                             <i class="ti-dashboard"></i>{{$t('dashboard')}}</a>
                     </li>
 
+                    <li v-if="$helper.hasAccessPermission('all-universities')"
+                        :class="$route.name == 'all_universities' ? 'active': ''">
+                        <a href="" @click.prevent="$router.push({name:'all_universities'})">
+                            <i class="ti-cup"></i>{{$t('all_universities')}}</a>
+                    </li>
                     <li v-if="$helper.hasAccessPermission('all-category')"
                         :class="$route.name == 'all_categories' ? 'active': ''">
                         <a href="" @click.prevent="$router.push({name:'all_categories'})">
                             <i class="ti-agenda"></i>{{$t('all_categories')}}</a>
+                    </li>
+                    <li v-if="$helper.hasAccessPermission('all-teachers')"
+                        :class="$route.name == 'all_teachers' ? 'active': ''">
+                        <a href="" @click.prevent="$router.push({name:'all_teachers'})">
+                            <i class="ti-user"></i>{{$t('all_teachers')}}</a>
                     </li>
 
                     <li v-if="$helper.hasAccessPermission('all-list')"
@@ -19,12 +29,23 @@
                         <a href="" @click.prevent="$router.push({name:'all_lists'})">
                             <i class="ti-list"></i>{{$t('all_lists')}}</a>
                     </li>
-
-                    <li v-if="$helper.hasAccessPermission('all-user')"
-                        :class="$route.name == 'all_users' ? 'active': ''">
-                        <a href="" @click.prevent="$router.push({name:'all_users'})">
-                            <i class="ti-user"></i>{{$t('all_users')}}</a>
+                    <li v-if="$helper.hasAccessPermission('all-assignments')"
+                        :class="$route.name == 'all_assignments' ? 'active': ''">
+                        <a href="" @click.prevent="$router.push({name:'all_assignments'})">
+                            <i class="ti-ticket"></i>{{$t('all_assignments')}}</a>
                     </li>
+
+                    <li v-if="$helper.hasAccessPermission('all-discussions')"
+                        :class="$route.name == 'all_discussions' ? 'active': ''">
+                        <a href="" @click.prevent="$router.push({name:'all_discussions'})">
+                            <i class="ti-ticket"></i>{{$t('all_discussions')}}</a>
+                    </li>
+
+                    <!--<li v-if="$helper.hasAccessPermission('all-user')"-->
+                        <!--:class="$route.name == 'all_users' ? 'active': ''">-->
+                        <!--<a href="" @click.prevent="$router.push({name:'all_users'})">-->
+                            <!--<i class="ti-user"></i>{{$t('all_users')}}</a>-->
+                    <!--</li>-->
 
                     <li class="dropdown"
                         v-if="$helper.hasAccessPermission('menu-report')"

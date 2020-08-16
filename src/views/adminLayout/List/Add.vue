@@ -26,15 +26,12 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="font-weight-bold">{{$t('category')}}</label>
-                                    <select v-validate="'required'" data-vv-name="category_id"
-                                            v-model="dataModel.category_id"
-                                            class="form-control">
-                                        <option v-for="(category , index) in categories" :value="category.id">
-                                            {{category.translated.title}}
-                                        </option>
-                                    </select>
-                                    <span class="text-danger text-sm">{{ errors.first('category_id') }}</span>
+                                    <label class="font-weight-bold">{{$t('code')}}</label>
+                                    <input type="text"
+                                           v-validate="'required'" data-vv-name="code" v-model="dataModel.code"
+                                           class="form-control"
+                                           :placeholder="$t('code')">
+                                    <span class="text-danger text-sm">{{ errors.first('code') }}</span>
                                 </div>
                             </div>
 
@@ -59,37 +56,27 @@
                                     <span class="text-danger text-sm">{{ errors.first('title_en') }}</span>
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="row">
-
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="font-weight-bold">{{$t('description_ar')}}</label>
-                                    <textarea type="text"
-                                              data-vv-name="description_ar" v-model="dataModel.description_ar"
-                                              class="form-control"
-                                              :placeholder="$t('description_ar')"></textarea>
-                                    <span class="text-danger text-sm">{{ errors.first('description_ar') }}</span>
+                                    <label class="font-weight-bold">{{$t('what_you_learn')}}</label>
+                                    <vue-editor dir="ltr" v-model="dataModel.what_you_learn"></vue-editor>
+                                    <span class="text-danger text-sm">{{ errors.first('what_you_learn') }}</span>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="font-weight-bold">{{$t('description_en')}}</label>
-                                    <textarea type="text"
-                                              data-vv-name="description_en" v-model="dataModel.description_en"
-                                              class="form-control"
-                                              :placeholder="$t('description_en')"></textarea>
-                                    <span class="text-danger text-sm">{{ errors.first('description_en') }}</span>
+                                    <label class="font-weight-bold">{{$t('list_requirement')}}</label>
+                                    <vue-editor dir="ltr" v-model="dataModel.list_requirement"></vue-editor>
+                                    <span class="text-danger text-sm">{{ errors.first('list_requirement') }}</span>
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="row">
-
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="font-weight-bold">{{$t('price')}}</label>
@@ -115,34 +102,128 @@
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label class="font-weight-bold">{{$t('hours_number')}}</label>
+                                    <label class="font-weight-bold">{{$t('lectures_count')}}</label>
                                     <input type="text"
-                                           v-validate="'required'" data-vv-name="hours_number"
-                                           v-model="dataModel.hours_number"
+                                           v-validate="'required'" data-vv-name="lectures_count"
+                                           v-model="dataModel.lectures_count"
                                            class="form-control"
-                                           :placeholder="$t('hours_number')">
-                                    <span class="text-danger text-sm">{{ errors.first('hours_number') }}</span>
+                                           :placeholder="$t('lectures_count')">
+                                    <span class="text-danger text-sm">{{ errors.first('lectures_count') }}</span>
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label class="font-weight-bold">{{$t('price_duration')}}</label>
-                                    <input type="text"
-                                           v-validate="'required'" data-vv-name="price_duration"
-                                           v-model="dataModel.price_duration"
-                                           class="form-control"
-                                           :placeholder="$t('price_duration')">
-                                    <span class="text-danger text-sm">{{ errors.first('price_duration') }}</span>
+                                    <label class="font-weight-bold">{{$t('start_date')}}</label>
+                                    <flat-pickr
+                                            v-validate="'required'" data-vv-name="start_date"
+                                            v-model="dataModel.start_date"
+                                            class="form-control"
+                                            :placeholder="$t('start_date')"/>
+                                    <span class="text-danger text-sm">{{ errors.first('start_date') }}</span>
                                 </div>
                             </div>
 
-                        </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">{{$t('list_type')}}</label>
+                                    <select v-validate="'required'" data-vv-name="list_type_id"
+                                            v-model="dataModel.list_type_id"
+                                            class="form-control">
+                                        <option v-for="(list_type , index) in []" :value="list_type.id">
+                                            {{list_type.translated.title}}
+                                        </option>
+                                    </select>
+                                    <span class="text-danger text-sm">{{ errors.first('list_type_id') }}</span>
+                                </div>
+                            </div>
 
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">{{$t('list_method')}}</label>
+                                    <select v-validate="'required'" data-vv-name="list_method"
+                                            v-model="dataModel.list_method"
+                                            class="form-control">
+                                        <option v-for="(list_method , index) in list_methods" :value="list_method">
+                                            {{$t(list_method)}}
+                                        </option>
+                                    </select>
+                                    <span class="text-danger text-sm">{{ errors.first('list_method') }}</span>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-12" v-if="dataModel.list_method == 'live'">
+                <div class="dashboard_container">
+                    <div class="row">
+                        <div class="col-12 pt-3">
+                            <h2 class="font-weight-bold fun_font text-center">{{$t('create_group')}}</h2>
+                        </div>
+                    </div>
+                    <div class="dashboard_container_body p-2">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">{{$t('group_name')}}</label>
+                                    <input type="text"
+                                           v-validate="'required'" data-vv-name="group_name"
+                                           v-model="dataModel.group_name"
+                                           class="form-control"
+                                           :placeholder="$t('group_name')">
+                                    <span class="text-danger text-sm">{{ errors.first('group_name') }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">{{$t('limit_numbers')}}</label>
+                                    <input type="text"
+                                           v-validate="'required'" data-vv-name="limit_numbers"
+                                           v-model="dataModel.limit_numbers"
+                                           class="form-control"
+                                           :placeholder="$t('limit_numbers')">
+                                    <span class="text-danger text-sm">{{ errors.first('limit_numbers') }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">{{$t('times')}}</label>
+                                    <ul>
+                                        <li class="mb-1" >
+                                            <div class="row">
+                                                <div class="col-md-6 mb-1" v-for="(day,index) in $helper.getDays()" :key="index">
+                                                    <div class="row">
+
+                                                        <div class="col-md-4">
+                                                            <input :id="'day_'+index" type="checkbox" name="day_index[]"/>
+                                                            <label :for="'day_'+index"
+                                                                   class="font-weight-bold p-1">{{day}}</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <flat-pickr
+                                                                    :config="{
+                                                            enableTime: true,
+                                                            noCalendar: true,
+                                                            dateFormat: 'H:i'}"
+                                                                    v-model="dataModel.days[index]"
+                                                                    class="form-control text-center"
+                                                                    :placeholder="'00:00'"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-md-12">
                 <div class="dashboard_container">
                     <div class="row">
@@ -188,6 +269,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-12">
                 <div class="dashboard_container">
                     <div class="dashboard_container_body p-2">
@@ -217,6 +299,7 @@
         data() {
             return {
                 dataModel: {
+                    code: '',
                     title_ar: '',
                     title_en: '',
                     description_ar: '',
@@ -226,13 +309,16 @@
                     hours_number: '',
                     price_duration: '',
                     category_id: '',
+                    list_method: '',
+                    days: [],
                 },
                 imgSrc: null,
-                categories: []
+                categories: [],
+                list_methods: ['recorded', 'live'],
             }
         },
         mounted() {
-            this.getAllCategories()
+            // this.getAllCategories()
         },
         methods: {
             previewImage() {

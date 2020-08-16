@@ -8,7 +8,7 @@
                     <div class="col-lg-7 col-md-9">
                         <div class="ed_detail_wrap light">
                             <div class="ed_header_caption">
-                                <h1 class="ed_title font-weight-bold fun_font">{{$t('login')}}</h1>
+                                <h1 class="ed_title font-weight-bold fun_font">{{$t('login_teacher')}}</h1>
                             </div>
 
                         </div>
@@ -25,7 +25,7 @@
 
                             <div class="ed_author direction">
                                 <div class="ed_author_box">
-                                    <h2 class="font-weight-bold fun_font">{{$t('login')}}</h2>
+                                    <h2 class="font-weight-bold fun_font">{{$t('login_teacher')}}</h2>
                                     <span>{{$t('login_p')}}</span>
                                 </div>
                             </div>

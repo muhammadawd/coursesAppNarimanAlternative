@@ -80,10 +80,10 @@
                                 <a href="#" @click.prevent="logout()">{{$t('logout')}}</a>
                             </li>
                             <li class="login_click green light" v-if="!getAuth">
-                                <a href="#" @click.prevent="$router.push({name:'login'})">{{$t('login')}}</a>
+                                <a href="#" @click.prevent="$router.push({name:'login'})">{{$t('login_teacher')}}</a>
                             </li>
                             <li class="login_click bg-green" v-if="!getAuth">
-                                <a href="#" @click.prevent="$router.push({name:'register'})">{{$t('new_account')}}</a>
+                                <a href="#" @click.prevent="$router.push({name:'register'})">{{$t('new_account_teacher')}}</a>
                             </li>
                         </ul>
                     </div>
