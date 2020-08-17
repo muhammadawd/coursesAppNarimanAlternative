@@ -185,6 +185,37 @@ const router = new Router({
                 },
 
                 {
+                    path: '/admin/all_faculties',
+                    name: 'all_faculties',
+                    component: () => import('./views/adminLayout/Faculities/All.vue'),
+                    meta: {
+                        pageTitle: 'All Faculty',
+                        authRequired: true,
+                        isAdmin: true,
+                    }
+                },
+                {
+                    path: '/admin/all_faculties/add',
+                    name: 'add_faculty',
+                    component: () => import('./views/adminLayout/Faculities/Add.vue'),
+                    meta: {
+                        pageTitle: 'Add Faculty',
+                        authRequired: true,
+                        isAdmin: true,
+                    }
+                },
+                {
+                    path: '/admin/all_faculties/edit/:id',
+                    name: 'edit_faculty',
+                    component: () => import('./views/adminLayout/Faculities/Edit.vue'),
+                    meta: {
+                        pageTitle: 'Edit Faculities',
+                        authRequired: true,
+                        isAdmin: true,
+                    }
+                },
+
+                {
                     path: '/admin/all_categories',
                     name: 'all_categories',
                     component: () => import('./views/adminLayout/Categories/All.vue'),

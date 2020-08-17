@@ -13,6 +13,11 @@
                         <a href="" @click.prevent="$router.push({name:'all_universities'})">
                             <i class="ti-cup"></i>{{$t('all_universities')}}</a>
                     </li>
+                    <li v-if="$helper.hasAccessPermission('all-faculties')"
+                        :class="$route.name == 'all_faculties' ? 'active': ''">
+                        <a href="" @click.prevent="$router.push({name:'all_faculties'})">
+                            <i class="ti-pie-chart"></i>{{$t('all_faculties')}}</a>
+                    </li>
                     <li v-if="$helper.hasAccessPermission('all-category')"
                         :class="$route.name == 'all_categories' ? 'active': ''">
                         <a href="" @click.prevent="$router.push({name:'all_categories'})">

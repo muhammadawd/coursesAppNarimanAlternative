@@ -217,6 +217,7 @@
                     page: this.page,
                     start_date: this.start_date,
                     end_date: this.end_date,
+                    list_id: this.selectedList ? this.selectedList.id : '',
                     // paginated: true,
                     // limit: 1,
                 };
