@@ -78,9 +78,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <hr>
-                                    </div>
                                 </div>
                             </div>
                         </div>
