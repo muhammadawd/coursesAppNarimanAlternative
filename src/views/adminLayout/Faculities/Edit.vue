@@ -26,6 +26,14 @@
                         <div class="row">
 
                             <div class="col-md-4">
+                                <label class="font-weight-bold">{{$t('university')}}</label>
+                                <multiselect
+                                        :options="[]"
+                                        track-by="id"
+                                        :placeholder="$t('search')"></multiselect>
+                            </div>
+
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="font-weight-bold">{{$t('title_ar')}}</label>
                                     <input type="text"
@@ -151,6 +159,13 @@
     }
 </script>
 
-<style scoped>
+<style>
+    .multiselect__select {
+        height: 55px;
+    }
 
+    .multiselect__tags {
+        min-height: 55px;
+        padding: 15px 40px 0 8px;
+    }
 </style>

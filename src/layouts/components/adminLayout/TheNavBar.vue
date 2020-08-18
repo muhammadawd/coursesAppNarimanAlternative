@@ -50,9 +50,9 @@
                                    @click.prevent="$router.push({name:'all_discussions'})">{{$t('all_discussions')}}</a>
                             </li>
                             <!--<li class="d-md-none" v-if="$helper.hasAccessPermission('all-user')"-->
-                                <!--:class="$route.name == 'all_users' ? 'active' : ''">-->
-                                <!--<a href=""-->
-                                   <!--@click.prevent="$router.push({name:'all_users'})">{{$t('all_users')}}</a>-->
+                            <!--:class="$route.name == 'all_users' ? 'active' : ''">-->
+                            <!--<a href=""-->
+                            <!--@click.prevent="$router.push({name:'all_users'})">{{$t('all_users')}}</a>-->
                             <!--</li>-->
                             <li class="d-md-none" v-if="$helper.hasAccessPermission('menu-report')">
                                 <a href="#" @click.prevent>{{$t('reports')}}<span class="submenu-indicator"></span></a>
@@ -99,6 +99,14 @@
                         </ul>
 
                         <ul class="nav-menu nav-menu-social float-right direction">
+                            <li class="green light d-none d-md-flex text-capitalize">
+                                <a style="">
+                                    <div class="notification">
+                                        <div class="notification_count">0</div>
+                                        <i class="ti-notepad"></i>
+                                    </div>
+                                </a>
+                            </li>
                             <li class="green light d-none d-md-flex text-capitalize" v-if="locale != 'ar'">
                                 <a style="" @click="updateLocale('ar')">{{$t('ar')}}</a>
                             </li>
@@ -342,5 +350,22 @@
 </script>
 
 <style scoped>
+    .notification {
+        position: relative;
+        cursor: pointer;
+    }
 
+    .notification .notification_count {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
+        font-size: 12px;
+        border-radius: 50%;
+        background: #0d93b1;
+        color: #fff;
+        text-align: center;
+        top: -15px;
+        right: -10px;
+    }
 </style>

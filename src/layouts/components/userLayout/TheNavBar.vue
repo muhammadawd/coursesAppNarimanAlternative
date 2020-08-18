@@ -16,43 +16,43 @@
                     <div class="nav-menus-wrapper" style="transition-property: none;">
                         <ul class="nav-menu float-left direction">
 
-                            <li :class="$route.name == 'home' ? 'active' : ''"><a href=""  @click.prevent="$router.push({name:'home'})">{{$t('home')}}</a>
-                            </li>
+                            <!--<li :class="$route.name == 'home' ? 'active' : ''"><a href=""  @click.prevent="$router.push({name:'home'})">{{$t('home')}}</a>-->
+                            <!--</li>-->
 
-                            <li :class="$route.name == 'course_detail' ? 'active' : ''"><a
-                                    href="#">{{$t('courses')}}<span class="submenu-indicator"></span></a>
-                                <ul class="nav-dropdown nav-submenu">
-                                    <li v-for="(category , index) in categories">
-                                        <a href="#" @click.prevent>{{category.translated.title}}
-                                            <span class="submenu-indicator"></span>
-                                        </a>
-                                        <ul class="nav-dropdown nav-submenu">
-                                            <li v-for="(list , _index) in category.lists">
-                                                <a href="#"
-                                                   @click.prevent="$router.push({name:'course_detail',params:{id:list.id}})">{{list.translated.title}}</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
+                            <!--<li :class="$route.name == 'course_detail' ? 'active' : ''"><a-->
+                                    <!--href="#">{{$t('courses')}}<span class="submenu-indicator"></span></a>-->
+                                <!--<ul class="nav-dropdown nav-submenu">-->
+                                    <!--<li v-for="(category , index) in categories">-->
+                                        <!--<a href="#" @click.prevent>{{category.translated.title}}-->
+                                            <!--<span class="submenu-indicator"></span>-->
+                                        <!--</a>-->
+                                        <!--<ul class="nav-dropdown nav-submenu">-->
+                                            <!--<li v-for="(list , _index) in category.lists">-->
+                                                <!--<a href="#"-->
+                                                   <!--@click.prevent="$router.push({name:'course_detail',params:{id:list.id}})">{{list.translated.title}}</a>-->
+                                            <!--</li>-->
+                                        <!--</ul>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
 
-                            <li v-show="getAuth"><a href="#">{{$t('profile')}}<span class="submenu-indicator"></span></a>
-                                <ul class="nav-dropdown nav-submenu">
-                                    <li><a href="#"
-                                           @click.prevent="$router.push({name:'profile'})">{{$t('my_info')}}</a></li>
-                                    <li><a href="#"
-                                           @click.prevent="$router.push({name:'update_password'})">{{$t('update_password')}}</a>
-                                    </li>
-                                    <li><a href="#"
-                                           @click.prevent="$router.push({name:'my_courses'})">{{$t('my_courses')}}</a>
-                                    </li>
-                                </ul>
-                            </li>
+                            <!--<li v-show="getAuth"><a href="#">{{$t('profile')}}<span class="submenu-indicator"></span></a>-->
+                                <!--<ul class="nav-dropdown nav-submenu">-->
+                                    <!--<li><a href="#"-->
+                                           <!--@click.prevent="$router.push({name:'profile'})">{{$t('my_info')}}</a></li>-->
+                                    <!--<li><a href="#"-->
+                                           <!--@click.prevent="$router.push({name:'update_password'})">{{$t('update_password')}}</a>-->
+                                    <!--</li>-->
+                                    <!--<li><a href="#"-->
+                                           <!--@click.prevent="$router.push({name:'my_courses'})">{{$t('my_courses')}}</a>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
 
-                            <li :class="$route.name == 'search' ? 'active' : ''">
-                                <a href=""
-                                   @click.prevent="$router.push({name:'search'})">{{$t('search')}}</a>
-                            </li>
+                            <!--<li :class="$route.name == 'search' ? 'active' : ''">-->
+                                <!--<a href=""-->
+                                   <!--@click.prevent="$router.push({name:'search'})">{{$t('search')}}</a>-->
+                            <!--</li>-->
 
                             <li class="d-md-none"><a style="" v-if="locale != 'ar'" @click="updateLocale('ar')">{{$t('ar')}}</a>
                             </li>

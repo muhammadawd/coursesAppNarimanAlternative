@@ -22,14 +22,14 @@
                         </div>
                         <div class="col-md-6 text-center text-md-left">
                             <ul>
-                                <!--<li class="list-inline-item">-->
-                                <!--<button class="btn btn-danger-light"-->
-                                <!--v-if="$helper.hasAccessPermission('create-list')"-->
-                                <!--@click="$router.push({name:'add_lists'})">-->
-                                <!--<i class="ti-plus"></i>-->
-                                <!--{{$t('add')}}-->
-                                <!--</button>-->
-                                <!--</li>-->
+                                <li class="list-inline-item pr-1 ">
+                                    <button class="btn btn-danger-light"
+                                            v-if="$helper.hasAccessPermission('create-list')"
+                                            @click="$router.push({name:'add_discussions'})">
+                                        <i class="ti-plus"></i>
+                                        {{$t('add')}}
+                                    </button>
+                                </li>
                                 <!--<li class="list-inline-item">-->
                                 <!--<button class="btn btn-warning-light">-->
                                 <!--<i class="ti-printer"></i>-->
@@ -86,6 +86,10 @@
                                                     v-if="$helper.hasAccessPermission('delete-discussion')"
                                                     @click="$router.push({name:'show_student_assignment',params:{id:list.id}})">
                                                 {{$t('delete')}}
+                                            </button>
+                                            <button class="btn custom_btn btn-success-light"
+                                                    @click="$router.push({name:'add_discussions',query:{list_id:list.id}})">
+                                                {{$t('reply')}}
                                             </button>
                                         </div>
                                     </td>

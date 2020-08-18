@@ -308,13 +308,22 @@ const router = new Router({
                     }
                 },
 
-
                 {
                     path: '/admin/all_discussions',
                     name: 'all_discussions',
                     component: () => import('./views/adminLayout/Discussion/All.vue'),
                     meta: {
                         pageTitle: 'All Discussions',
+                        authRequired: true,
+                        isAdmin: true,
+                    }
+                },
+                {
+                    path: '/admin/add_discussions',
+                    name: 'add_discussions',
+                    component: () => import('./views/adminLayout/Discussion/Add.vue'),
+                    meta: {
+                        pageTitle: 'Add Discussions',
                         authRequired: true,
                         isAdmin: true,
                     }
@@ -340,7 +349,6 @@ const router = new Router({
                         isAdmin: true,
                     }
                 },
-
 
                 {
                     path: '/admin/all_teachers',
@@ -506,6 +514,38 @@ const router = new Router({
                         pageTitle: 'getAllListReport',
                         authRequired: true,
                         isAdmin: true,
+                    }
+                },
+
+
+                {
+                    path: '/teacher/dashboard',
+                    name: 'teacher_dashboard',
+                    component: () => import('./views/teacherLayout/Dashboard.vue'),
+                    meta: {
+                        pageTitle: 'Teacher Dashboard',
+                        authRequired: false,
+                        isAdmin: false,
+                    }
+                },
+                {
+                    path: '/teacher/courses/:id/lessons',
+                    name: 'teacher_dashboard_courses',
+                    component: () => import('./views/teacherLayout/myCourse/Courses.vue'),
+                    meta: {
+                        pageTitle: 'Teacher Dashboard',
+                        authRequired: false,
+                        isAdmin: false,
+                    }
+                },
+                {
+                    path: '/teacher/courses/:id/discussions',
+                    name: 'teacher_dashboard_discussions',
+                    component: () => import('./views/teacherLayout/myCourse/Discussions.vue'),
+                    meta: {
+                        pageTitle: 'Teacher Dashboard',
+                        authRequired: false,
+                        isAdmin: false,
                     }
                 },
             ],
