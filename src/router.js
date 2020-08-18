@@ -548,6 +548,26 @@ const router = new Router({
                         isAdmin: false,
                     }
                 },
+                {
+                    path: '/teacher/courses/:id/assignments',
+                    name: 'teacher_dashboard_assignments',
+                    component: () => import('./views/teacherLayout/myCourse/Assignments.vue'),
+                    meta: {
+                        pageTitle: 'Teacher Dashboard',
+                        authRequired: false,
+                        isAdmin: false,
+                    }
+                },
+                {
+                    path: '/teacher/courses/:id/students',
+                    name: 'teacher_dashboard_students',
+                    component: () => import('./views/teacherLayout/myCourse/Students.vue'),
+                    meta: {
+                        pageTitle: 'Teacher Dashboard',
+                        authRequired: false,
+                        isAdmin: false,
+                    }
+                },
             ],
         },
         // =============================================================================

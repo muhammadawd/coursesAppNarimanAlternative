@@ -29,20 +29,25 @@
                                                 <h5 class="pt-2">{{$t('discussions')}}</h5>
                                             </a>
                                         </div>
-                                        <div class="col-3">
-                                            <a href="">
+                                        <div class="col-3"
+                                             @click.prevent="$router.push({name:'teacher_dashboard_assignments',params:{id:1}})">
+                                            <a href="" @click.prevent
+                                               :class="$route.name == 'teacher_dashboard_assignments' ?  'active' : ''">
                                                 <i class="ti-file fa-2x"></i>
                                                 <h5 class="pt-2">{{$t('assignments')}}</h5>
                                             </a>
                                         </div>
-                                        <div class="col-3">
-                                            <a href="">
+                                        <div class="col-3"
+                                             @click.prevent="$router.push({name:'teacher_dashboard_students',params:{id:1}})">
+                                            <a href="" @click.prevent
+                                               :class="$route.name == 'teacher_dashboard_students' ?  'active' : ''">
                                                 <i class="ti-user fa-2x"></i>
                                                 <h5 class="pt-2">{{$t('reg_students')}}</h5>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
