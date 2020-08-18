@@ -70,7 +70,7 @@
                             <h4 class="font-weight-bold">{{$t('my_discussion')}} (5)</h4>
                         </div>
                         <div class="card-body">
-                            <div class="p-2" v-for="(list,index) in [1]" :key="index">
+                            <div class="p-2" v-for="(list,index) in [1,2]" :key="index">
                                 <u-animate
                                         name="bounceInDown"
                                         :delay="index/10+'s'"
@@ -83,20 +83,29 @@
                                     <div @click="$router.push({name:'teacher_dashboard_courses',params:{id:1}})"
                                          class="row direction text-left pointer">
                                         <div class="col-md-12">
-                                            <div class="d-flex">
-                                                <div class="text-center" style="flex: 1">
-                                                    <img :src="require('@/assets/img/3180572.png')"
-                                                         width="60px" alt="">
-                                                </div>
-                                                <div style="flex: 4">
-                                                    <h4>مناقشة المشاريع</h4>
-                                                    <p>A Neural Network-Based Ensemble Real-Time Detection of Drifted
-                                                        Twitter Spam
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <h4 class="text-danger">
+                                                        <i class="ti-user text-danger"></i>
+                                                        عبدالله محمد احمد
+                                                    </h4>
+                                                    <p>
+                                                        هذا النص تجريبي يستبدل لاحقا
+                                                        هذا النص تجريبي يستبدل لاحقا
                                                     </p>
+                                                </div>
+                                                <div class="col-md-4 direction-inverse text-right">
+                                                    <div>
+                                                        <i class="ti-calendar text-danger theme-cl"></i><span
+                                                            class="font-weight-bold text-dark text-small"> 21-05-2019 </span>
+                                                    </div>
+                                                    <div>
+                                                        <label class="badge badge-danger">فرنسية</label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12" v-if="index < [1].length -1">
+                                        <div class="col-md-12" v-if="index < [1,2].length -1">
                                             <hr class="hr_bg">
                                         </div>
                                     </div>
@@ -111,7 +120,7 @@
                             <h4 class="font-weight-bold">{{$t('my_assignments')}} (2)</h4>
                         </div>
                         <div class="card-body">
-                            <div class="p-2" v-for="(list,index) in [1]" :key="index">
+                            <div class="p-2" v-for="(list,index) in [1,2]" :key="index">
                                 <u-animate
                                         name="bounceInDown"
                                         :delay="index/10+'s'"
@@ -124,24 +133,31 @@
                                     <div @click="$router.push({name:'teacher_dashboard_courses',params:{id:1}})"
                                          class="row direction text-left pointer">
                                         <div class="col-md-12">
-                                            <div class="d-flex">
-                                                <div class="text-center" style="flex: 1">
-                                                    <img :src="require('@/assets/img/3180572.png')"
-                                                         width="60px" alt="">
-                                                </div>
-                                                <div style="flex: 4">
-                                                    <h4>واجب الدرس الاول</h4>
-                                                    <h6 class="text-danger">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <h4 class="text-danger">
                                                         <i class="ti-user text-danger"></i>
                                                         عبدالله محمد احمد
-                                                    </h6>
-                                                    <p>A Neural Network-Based Ensemble Real-Time Detection of Drifted
-                                                        Twitter Spam
-                                                    </p>
+                                                    </h4>
+                                                    <h6>واجب الدرس الاول</h6>
+                                                </div>
+                                                <div class="col-md-4 direction-inverse text-right">
+                                                    <div>
+                                                        <i class="ti-calendar text-danger theme-cl"></i><span
+                                                            class="font-weight-bold text-dark text-small"> 21-05-2019 </span>
+                                                    </div>
+                                                    <div>
+                                                        <label class="badge badge-danger">فرنسية</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 text-center">
+                                                    <button class="btn btn-danger-light btn-sm">
+                                                        {{$t('show_file')}}
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12" v-if="index < [1].length -1">
+                                        <div class="col-md-12" v-if="index < [1,2].length -1">
                                             <hr class="hr_bg">
                                         </div>
                                     </div>
