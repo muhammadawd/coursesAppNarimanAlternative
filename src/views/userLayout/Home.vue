@@ -8,7 +8,7 @@
                     <h3 class="text-white">حمل التطبيق دلوقتي! مجاناً!</h3>
                 </a>
             </div>
-            <div class="fixed_data text-left" style="left: 30px;right: auto">
+            <div class="fixed_data text-left" style="left: 30px;top: 30px;z-index: 999;right: auto;bottom: auto;">
                 <button class="btn btn-primary  text-white font-weight-bold"
                         @click.prevent="$router.push({name:'register'})">
                     {{$t('new_account_teacher')}}
