@@ -3,7 +3,7 @@
         <TheNavBar/>
         <router-view></router-view>
         <toTop/>
-        <TheFooter/>
+        <!--<TheFooter/>-->
     </div>
 </template>
 

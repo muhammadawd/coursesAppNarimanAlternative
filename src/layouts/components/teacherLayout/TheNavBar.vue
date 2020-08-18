@@ -15,79 +15,11 @@
                     </div>
                     <div class="nav-menus-wrapper" style="transition-property: none;">
                         <ul class="nav-menu float-left direction">
-                            <li class="d-md-none" :class="$route.name == 'dashboard' ? 'active' : ''">
+                            <li class="d-md-none" :class="$route.name == 'teacher_dashboard' ? 'active' : ''">
                                 <a href=""
-                                   @click.prevent="$router.push({name:'dashboard'})">{{$t('dashboard')}}</a>
+                                   @click.prevent="$router.push({name:'teacher_dashboard'})">{{$t('teacher_dashboard')}}</a>
                             </li>
-                            <li class="d-md-none" v-if="$helper.hasAccessPermission('all-category')"
-                                :class="$route.name == 'all_categories' ? 'active' : ''">
-                                <a href=""
-                                   @click.prevent="$router.push({name:'all_categories'})">{{$t('all_categories')}}</a>
-                            </li>
-                            <li class="d-md-none" v-if="$helper.hasAccessPermission('all-universities')"
-                                :class="$route.name == 'all_universities' ? 'active' : ''">
-                                <a href=""
-                                   @click.prevent="$router.push({name:'all_universities'})">{{$t('all_universities')}}</a>
-                            </li>
-                            <li class="d-md-none" v-if="$helper.hasAccessPermission('all-teachers')"
-                                :class="$route.name == 'all_teachers' ? 'active' : ''">
-                                <a href=""
-                                   @click.prevent="$router.push({name:'all_teachers'})">{{$t('all_teachers')}}</a>
-                            </li>
-                            <li class="d-md-none" v-if="$helper.hasAccessPermission('all-list')"
-                                :class="$route.name == 'all_lists' ? 'active' : ''">
-                                <a href=""
-                                   @click.prevent="$router.push({name:'all_lists'})">{{$t('all_lists')}}</a>
-                            </li>
-                            <li class="d-md-none" v-if="$helper.hasAccessPermission('all-assignments')"
-                                :class="$route.name == 'all_assignments' ? 'active' : ''">
-                                <a href=""
-                                   @click.prevent="$router.push({name:'all_assignments'})">{{$t('all_assignments')}}</a>
-                            </li>
-                            <li class="d-md-none" v-if="$helper.hasAccessPermission('all-discussions')"
-                                :class="$route.name == 'all_discussions' ? 'active' : ''">
-                                <a href=""
-                                   @click.prevent="$router.push({name:'all_discussions'})">{{$t('all_discussions')}}</a>
-                            </li>
-                            <!--<li class="d-md-none" v-if="$helper.hasAccessPermission('all-user')"-->
-                            <!--:class="$route.name == 'all_users' ? 'active' : ''">-->
-                            <!--<a href=""-->
-                            <!--@click.prevent="$router.push({name:'all_users'})">{{$t('all_users')}}</a>-->
-                            <!--</li>-->
-                            <li class="d-md-none" v-if="$helper.hasAccessPermission('menu-report')">
-                                <a href="#" @click.prevent>{{$t('reports')}}<span class="submenu-indicator"></span></a>
-                                <ul class="nav-dropdown nav-submenu">
-                                    <li v-if="$helper.hasAccessPermission('users-report')">
-                                        <a href="#"
-                                           @click.prevent="$router.push({name:'getAllUsersReport'})">{{$t('getAllUsersReport')}}</a>
-                                    </li>
-                                    <li v-if="$helper.hasAccessPermission('all-list')">
-                                        <a href="#"
-                                           @click.prevent="$router.push({name:'getAllListReport'})">{{$t('getAllListReport')}}</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="d-md-none" v-if="$helper.hasAccessPermission('menu-setting')">
-                                <a href="#" @click.prevent>{{$t('settings')}}<span class="submenu-indicator"></span></a>
-                                <ul class="nav-dropdown nav-submenu">
-                                    <li>
-                                        <a href="#"
-                                           @click.prevent="$router.push({name:'main_settings'})">{{$t('main_settings')}}</a>
-                                    </li>
-                                    <li v-if="$helper.hasAccessPermission('all-slider')">
-                                        <a href="#"
-                                           @click.prevent="$router.push({name:'all_sliders'})">{{$t('all_sliders')}}</a>
-                                    </li>
-                                    <li v-if="$helper.hasAccessPermission('all-admin')">
-                                        <a href="#"
-                                           @click.prevent="$router.push({name:'all_admins'})">{{$t('all_admins')}}</a>
-                                    </li>
-                                    <li v-if="$helper.hasAccessPermission('all-role')">
-                                        <a href="#"
-                                           @click.prevent="$router.push({name:'all_roles'})">{{$t('all_roles')}}</a>
-                                    </li>
-                                </ul>
-                            </li>
+
 
                             <li class="d-md-none"><a style="" v-if="locale != 'ar'" @click="updateLocale('ar')">{{$t('ar')}}</a>
                             </li>
@@ -99,6 +31,14 @@
                         </ul>
 
                         <ul class="nav-menu nav-menu-social float-right direction">
+                            <li class="green light d-none d-md-flex text-capitalize">
+                                <a style="">
+                                    <div class="notification">
+                                        <div class="notification_count">0</div>
+                                        <i class="fas fa-bell"></i>
+                                    </div>
+                                </a>
+                            </li>
                             <li class="green light d-none d-md-flex text-capitalize" v-if="locale != 'ar'">
                                 <a style="" @click="updateLocale('ar')">{{$t('ar')}}</a>
                             </li>
@@ -106,10 +46,9 @@
                                 <a class="" @click="updateLocale('en')">{{$t('en')}}</a>
                             </li>
                             <li class="text-dark d-none d-md-flex m-2"
-                                style="margin-top: 32px!important;font-size: 12px"
-                                v-if="getAuth">
+                                style="margin-top: 32px!important;font-size: 12px" >
                                 {{$t('welcome')}} <span
-                                    class="text-success font-weight-bold text-uppercase">({{$helper.splitFirst(getAuth.username)}})</span>
+                                    class="text-success font-weight-bold text-uppercase">({{'teacher'}})</span>
                             </li>
                         </ul>
                     </div>
@@ -342,4 +281,22 @@
 </script>
 
 <style scoped>
+    .notification {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .notification .notification_count {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
+        font-size: 12px;
+        border-radius: 50%;
+        background: #0d93b1;
+        color: #fff;
+        text-align: center;
+        top: -15px;
+        right: -10px;
+    }
 </style>

@@ -1,14 +1,20 @@
 <template>
     <div>
-        <a href="https://play.google.com/store" target="_blank">
-            <div class="bg_header direction">
-                <div class="overlayblack"></div>
-                <div class="fixed_data text-left">
+        <div class="bg_header direction">
+            <div class="overlayblack"></div>
+            <div class="fixed_data text-left">
+                <a href="https://play.google.com/store" target="_blank">
                     <h2 class="font-weight-bold">ذاكر من أي مكان!</h2>
                     <h3 class="text-white">حمل التطبيق دلوقتي! مجاناً!</h3>
-                </div>
+                </a>
             </div>
-        </a>
+            <div class="fixed_data text-left" style="left: 30px;right: auto">
+                <button class="btn btn-primary  text-white font-weight-bold"
+                        @click.prevent="$router.push({name:'register'})">
+                    {{$t('new_account_teacher')}}
+                </button>
+            </div>
+        </div>
         <!--<Header/>-->
         <!--<Features v-for="(category , index) in getAllCategories" :bgColor="(index % 2 == 0) ? '#fff' : '#eee'"-->
         <!--:category="category"/>-->
@@ -75,7 +81,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.2);
     }
 
     .bg_header {

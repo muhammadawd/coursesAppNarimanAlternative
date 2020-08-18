@@ -7,10 +7,6 @@
                         <a href="" @click.prevent="$router.push({name:'dashboard'})">
                             <i class="ti-dashboard"></i>{{$t('dashboard')}}</a>
                     </li>
-                    <li :class="$route.name == 'teacher_dashboard' ? 'active': ''">
-                        <a href="" @click.prevent="$router.push({name:'teacher_dashboard'})">
-                            <i class="ti-dashboard"></i>{{$t('teacher_dashboard')}}</a>
-                    </li>
 
                     <li class="dropdown"
                         v-if="$helper.hasAccessPermission('menu-report')"

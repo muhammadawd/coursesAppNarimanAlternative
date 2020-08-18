@@ -107,7 +107,8 @@
                             </div>
                             <div class="ed_view_link">
                                 <a href="#" class="btn btn-theme enroll-btn"
-                                   @click.prevent="submitForm()">{{$t('register')}}
+                                   @click.prevent="$router.push({name:'teacher_dashboard'})">{{$t('register')}}
+                                   <!--@click.prevent="submitForm()">{{$t('register')}}-->
                                 </a>
                             </div>
 

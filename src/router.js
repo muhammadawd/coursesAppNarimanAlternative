@@ -32,6 +32,29 @@ const router = new Router({
             // MAIN LAYOUT ROUTES
             // =============================================================================
             path: '',
+            component: () => import('./layouts/main/MainIndex.vue'),
+            children: [
+                {
+                    path: '/',
+                    redirect: '/home'
+                },
+                {
+                    path: '/home',
+                    name: 'home',
+                    component: () => import('./views/userLayout/Home.vue'),
+                    meta: {
+                        pageTitle: 'home',
+                        authRequired: false,
+                        isAdmin: false,
+                    }
+                },
+            ],
+        },
+        {
+            // =============================================================================
+            // MAIN LAYOUT ROUTES
+            // =============================================================================
+            path: '',
             component: () => import('./layouts/main/Main.vue'),
             children: [
                 {
@@ -131,6 +154,65 @@ const router = new Router({
             ],
         },
 
+        {
+            // =============================================================================
+            // Teacher LAYOUT ROUTES
+            // =============================================================================
+            path: '/',
+            component: () => import('./layouts/main/TeacherMain.vue'),
+            children: [
+                {
+                    path: '/teacher/dashboard',
+                    name: 'teacher_dashboard',
+                    component: () => import('./views/teacherLayout/Dashboard.vue'),
+                    meta: {
+                        pageTitle: 'Teacher Dashboard',
+                        authRequired: false,
+                        isAdmin: false,
+                    }
+                },
+                {
+                    path: '/teacher/courses/:id/lessons',
+                    name: 'teacher_dashboard_courses',
+                    component: () => import('./views/teacherLayout/myCourse/Courses.vue'),
+                    meta: {
+                        pageTitle: 'Teacher Dashboard',
+                        authRequired: false,
+                        isAdmin: false,
+                    }
+                },
+                {
+                    path: '/teacher/courses/:id/discussions',
+                    name: 'teacher_dashboard_discussions',
+                    component: () => import('./views/teacherLayout/myCourse/Discussions.vue'),
+                    meta: {
+                        pageTitle: 'Teacher Dashboard',
+                        authRequired: false,
+                        isAdmin: false,
+                    }
+                },
+                {
+                    path: '/teacher/courses/:id/assignments',
+                    name: 'teacher_dashboard_assignments',
+                    component: () => import('./views/teacherLayout/myCourse/Assignments.vue'),
+                    meta: {
+                        pageTitle: 'Teacher Dashboard',
+                        authRequired: false,
+                        isAdmin: false,
+                    }
+                },
+                {
+                    path: '/teacher/courses/:id/students',
+                    name: 'teacher_dashboard_students',
+                    component: () => import('./views/teacherLayout/myCourse/Students.vue'),
+                    meta: {
+                        pageTitle: 'Teacher Dashboard',
+                        authRequired: false,
+                        isAdmin: false,
+                    }
+                },
+            ]
+        },
         {
             // =============================================================================
             // Admin LAYOUT ROUTES
